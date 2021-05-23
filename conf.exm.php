@@ -4,5 +4,4 @@
 	$DB_USER = '';
 	$DB_PASS = '';
 	$DB_NAME = '';
-	$DOMAIN = '';
 $table_exists = false;		//это не трогать

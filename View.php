@@ -4,7 +4,7 @@ class View
 {	//разделил бы по файлам, если б было больше кода
 	private static $pages = [
 		'main' => '<form method="POST" action="cut">
-						<input name="link" placeholder="Введите ссылку, которую хотите сократить">
+						<input name="link" placeholder="Введите ссылку, которую хотите сократить" style="width:400px">
 						<input type="submit" value="Сократить">
 					</form>',
 		'createdLink' => "%0%<p id='path'>%1%/%2%</p><button onclick='copy()'>Скопировать</button>",

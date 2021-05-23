@@ -22,7 +22,7 @@ try{
 			$service->createTable();
 		}
 		if($route[1]=='cut'&&isset($_POST['link'])){
-			$service->createShortLink($DOMAIN);
+			$service->createShortLink();
 		}else{
 			$service->redirect();
 		}

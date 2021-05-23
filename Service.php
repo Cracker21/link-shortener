@@ -9,7 +9,7 @@ class Service
 		$this->pdo = $pdo;
 		$this->route = $route;
 	}
-	function createShortLink($domain){
+	function createShortLink(){
 		//сокращенная ссылка является подстрокой(последние 14 символов) md5-хэша основной ссылки
 		$msg = '';
 		$link = trim($_POST['link']);
@@ -22,7 +22,7 @@ class Service
 			$res->execute([$link, $hash]);
 			$msg.= 'Создана новая ссылка:';
 		}
-			View::show('createdLink', [$msg, $domain, $hash]);
+			View::show('createdLink', [$msg, $_SERVER['SERVER_NAME'], $hash]);
 	}
 	function redirect(){
 		$shLink = $this->pdo->prepare('select link from shLinks where hash = ?');
@@ -45,7 +45,7 @@ class Service
 	function createTable(){
 		if($res = $this->pdo->query('create table shLinks(link text, hash varchar(14))')){
 			$arr = file('conf.php');
-			$arr[7] = '$table_exists = true;';
+			$arr[6] = '$table_exists = true;';
 			file_put_contents('conf.php', implode('', $arr));
 		}
 	}
